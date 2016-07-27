@@ -1,6 +1,11 @@
 # grunt-webdriver-stage
 扩展grunt-webdriver，添加阶段性测试功能,grunt-webdriver使用方式请参见[grunt-webdriver](https://github.com/webdriverio/grunt-webdriver)
 
+# 安装
+```
+npm install grunt-webdriver-stage --save-dev
+```
+
 # 使用方法
 首先在wdio.conf.js 中配置需要测试的内容
 ```
