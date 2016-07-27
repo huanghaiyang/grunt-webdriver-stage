@@ -31,7 +31,7 @@ webdriver_stage: {
 }
 ```
 
-```stages```属性配置了webdriver需要阶段性测试的内容，以上共分为4个阶段
+stages属性配置了webdriver需要阶段性测试的内容，以上共分为4个阶段
 
 + 第一阶段测试
 
