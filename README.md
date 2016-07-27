@@ -32,17 +32,28 @@ webdriver_stage: {
 ```
 
 ```stages```属性配置了webdriver需要阶段性测试的内容，以上共分为4个阶段
+
 + 第一阶段测试
+
 ```
 ./test/specs/test_1.js
 ```
+
 +第二阶段测试
+
 ```
-./test/specs/test_2.js' , './test/specs/test_3.js
+./test/specs/test_2.js
+./test/specs/test_3.js
 ```
+
 第三阶段测试
+
 ```
 ./test/specs/foo/*.js
 ```
+
 第四阶段属于隐式声明，测试的内容是除去以上测试所剩下的所有未测内容
 
+```
+./test/specs/test_5.js
+```
