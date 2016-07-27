@@ -11,5 +11,6 @@ describe('grunt-webdriverjs test', function () {
     it('checks if title contains the search query', function () {
         browser.url('/')
         assert(browser.getTitle(), 'WebdriverIO - Selenium 2.0 javascript bindings for nodejs')
+        browser.end()
     })
 })

@@ -7,6 +7,17 @@ import fs from 'graceful-fs'
 
 module.exports = function (grunt) {
     grunt.registerMultiTask('webdriver_stage', 'run wdio test runner', function () {
+        let tmpFiles = []
+
+        function deleteTmpFiles () {
+            tmpFiles.forEach((file) => {
+                fs.unlinkSync(file)
+            })
+        }
+
+        /*process.on('uncaughtException', deleteTmpFiles)
+        process.on('exit', deleteTmpFiles)*/
+
         const done = this.async()
         const opts = merge(this.options(), this.data)
         const webdriverPath = path.dirname(resolve.sync('webdriverio'))
@@ -73,6 +84,7 @@ module.exports = function (grunt) {
                             newConfigs.specs = item
                             let newFileContent = 'exports.config=' + JSON.stringify(newConfigs)
                             fs.writeFileSync(newFilePath, newFileContent)
+                            tmpFiles.push(newFilePath)
 
                             let wdio = new Launcher(newFilename, opts)
 
@@ -85,6 +97,7 @@ module.exports = function (grunt) {
                                 callback()
                             })
                         }, (err) => {
+                            deleteTmpFiles()
                             if (err) {
                                 return done(false)
                             } else {
