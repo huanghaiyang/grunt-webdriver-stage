@@ -15,9 +15,6 @@ module.exports = function (grunt) {
             })
         }
 
-        /*process.on('uncaughtException', deleteTmpFiles)
-        process.on('exit', deleteTmpFiles)*/
-
         const done = this.async()
         const opts = merge(this.options(), this.data)
         const webdriverPath = path.dirname(resolve.sync('webdriverio'))
