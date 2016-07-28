@@ -1,18 +1,18 @@
 {
   "name": "grunt-webdriver-stage",
   "description": "grunt-webdriver-stage WebdriverIO阶段性测试grunt插件",
-  "version": "1.0.1",
-  "homepage": "https://github.com/haunghaiyang/grunt-webdriver-stage",
+  "version": "1.0.2",
+  "homepage": "https://github.com/huanghaiyang/grunt-webdriver-stage",
   "author": {
     "name": "huanghaiyang",
     "email": "huanhai24@sina.com"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/haunghaiyang/grunt-webdriver-stage.git"
+    "url": "git://github.com/huanghaiyang/grunt-webdriver-stage.git"
   },
   "bugs": {
-    "url": "https://github.com/haunghaiyang/grunt-webdriver-stage/issues"
+    "url": "https://github.com/huanghaiyang/grunt-webdriver-stage/issues"
   },
   "license": "MIT",
   "main": "Gruntfile.js",
