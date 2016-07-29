@@ -1,7 +1,7 @@
 {
   "name": "grunt-webdriver-stage",
   "description": "grunt-webdriver-stage WebdriverIO阶段性测试grunt插件",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "homepage": "https://github.com/huanghaiyang/grunt-webdriver-stage",
   "author": {
     "name": "huanghaiyang",

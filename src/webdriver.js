@@ -5,14 +5,12 @@ import _ from 'lodash'
 import async from 'async'
 import fs from 'graceful-fs'
 
+const tmp = './tmp/'
+
 module.exports = function (grunt) {
     grunt.registerMultiTask('webdriver_stage', 'run wdio test runner', function () {
-        let tmpFiles = []
-
-        function deleteTmpFiles () {
-            tmpFiles.forEach((file) => {
-                fs.unlinkSync(file)
-            })
+        if (!fs.existsSync(tmp)) {
+            fs.mkdirSync(tmp)
         }
 
         const done = this.async()
@@ -75,13 +73,11 @@ module.exports = function (grunt) {
                         async.eachOfLimit(files, 1, (item, key, callback) => {
                             key += 1
                             // 创建新的配置文件
-                            let newFilename = opts.configFile + '.' + new Date().getTime() + '.js'
-                            let newFilePath = filePath.substring(0, filePath.lastIndexOf('/')) + newFilename
+                            let newFilename = tmp + 'wdio.config.' + new Date().getTime() + '.js'
                             let newConfigs = _.clone(configs)
                             newConfigs.specs = item
                             let newFileContent = 'exports.config=' + JSON.stringify(newConfigs)
-                            fs.writeFileSync(newFilePath, newFileContent)
-                            tmpFiles.push(newFilePath)
+                            fs.writeFileSync(newFilename, newFileContent)
 
                             let wdio = new Launcher(newFilename, opts)
 
@@ -94,7 +90,6 @@ module.exports = function (grunt) {
                                 callback()
                             })
                         }, (err) => {
-                            deleteTmpFiles()
                             if (err) {
                                 return done(false)
                             } else {

@@ -32,3 +32,6 @@ tasks
 
 # Optional REPL history
 .node_repl_history
+
+# grunt webdriver stage tasks's tmp config filse
+tmp
