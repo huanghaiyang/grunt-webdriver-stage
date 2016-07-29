@@ -62,3 +62,6 @@ stages属性配置了webdriver需要阶段性测试的内容，以上共分为4�
 ```
 ./test/specs/test_5.js
 ```
+
+# note
+it will be generate tmp files in folder ./tmp , please add the folder in your .gitignore
